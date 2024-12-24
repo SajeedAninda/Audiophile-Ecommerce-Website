@@ -1,9 +1,11 @@
 import React from 'react'
 import zx9SpeakerImg from '../../assets/images/home/desktop/image-speaker-zx9.png'
+import speakerBg from '../../assets/images/home/desktop/pattern-circles.svg'
 
 const ZX9_Speaker = () => {
   return (
     <div className='w-[100%] lg:w-[1130px] h-[590px] rounded-xl mb-20 mx-auto bg-[#d87d4a] relative overflow-hidden'>
+      <img className='absolute -top-40 -left-60 w-full' src={speakerBg} alt='' />
       <div className='absolute -bottom-4 left-28'>
         <img className=' w-[410px]' src={zx9SpeakerImg} alt='' />
       </div>
