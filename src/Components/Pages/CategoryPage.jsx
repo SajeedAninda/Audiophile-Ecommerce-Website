@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import headphoneImg from '../../assets/images/product-xx99-mark-two-headphones/desktop/image-product.jpg'
 
 const CategoryPage = () => {
   const location = useLocation()
@@ -16,9 +15,9 @@ const CategoryPage = () => {
         return response.json()
       })
       .then(data => {
-        const matchedData = data.products.filter(
-          product => product.category === routeName
-        )
+        const matchedData = data.products
+          .filter(product => product.category === routeName)
+          .sort((a, b) => (b.new === true) - (a.new === true)) // Sort: 'new' products first
         setCategoryData(matchedData)
       })
       .catch(error => {
@@ -40,29 +39,38 @@ const CategoryPage = () => {
 
       <div className='h-fit mt-16'>
         <div className='w-[100%] lg:w-[1130px] mx-auto'>
-          {categoryData.map(product => {
+          {categoryData.map((product, index) => {
+            const isRowReversed = index % 2 === 1 
             return (
               <div
                 key={product?.id}
-                className='product flex gap-10 justify-between items-center mb-28'
+                className={`product flex ${
+                  isRowReversed ? 'flex-row-reverse' : 'flex-row'
+                } gap-10 justify-between items-center mb-28`}
               >
                 <div className='imgDiv w-[50%]'>
                   <img
                     className='rounded-xl'
                     src={product?.image?.desktop}
-                    alt=''
+                    alt={product?.name || 'Product Image'}
                   />
                 </div>
 
-                <div className='textDiv w-[50%] pl-20'>
-                  <p className='text-[14px] text-[#d87d4a] uppercase tracking-[10px]'>
-                    New Product
-                  </p>
-                  <h3 className='text-[#191919] text-[30px] font-bold w-[50%] uppercase mt-6 leading-[35px]'>
+                <div
+                  className={`textDiv w-[50%] ${
+                    isRowReversed ? '' : 'pl-20'
+                  }`}
+                >
+                  {product?.new && (
+                    <p className='text-[14px] text-[#d87d4a] uppercase tracking-[10px]'>
+                      New Product
+                    </p>
+                  )}
+                  <h3 className='text-[#191919] text-[30px] font-bold uppercase mt-6 leading-[35px] w-[50%]'>
                     {product?.name}
                   </h3>
 
-                  <p className='mt-6 text-[15px] text-[#00000080] leading-[30px]'>
+                  <p className='mt-6 text-[15px] text-[#00000080] leading-[30px] w-[90%]'>
                     {product?.description}
                   </p>
 
