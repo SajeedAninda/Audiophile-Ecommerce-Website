@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import Shop from '../Home/Shop/Shop'
+import AudioGear from '../AudioGear/AudioGear'
 
 const CategoryPage = () => {
   const location = useLocation()
@@ -40,7 +42,7 @@ const CategoryPage = () => {
       <div className='h-fit mt-16'>
         <div className='w-[100%] lg:w-[1130px] mx-auto'>
           {categoryData.map((product, index) => {
-            const isRowReversed = index % 2 === 1 
+            const isRowReversed = index % 2 === 1
             return (
               <div
                 key={product?.id}
@@ -57,9 +59,7 @@ const CategoryPage = () => {
                 </div>
 
                 <div
-                  className={`textDiv w-[50%] ${
-                    isRowReversed ? '' : 'pl-20'
-                  }`}
+                  className={`textDiv w-[50%] ${isRowReversed ? '' : 'pl-20'}`}
                 >
                   {product?.new && (
                     <p className='text-[14px] text-[#d87d4a] uppercase tracking-[10px]'>
@@ -82,6 +82,13 @@ const CategoryPage = () => {
             )
           })}
         </div>
+      </div>
+
+      <div className='-mt-20'>
+        <Shop></Shop>
+      </div>
+      <div>
+        <AudioGear></AudioGear>
       </div>
     </div>
   )
