@@ -39,29 +39,40 @@ const CategoryPage = () => {
       </div>
 
       <div className='h-fit mt-16'>
-        <div className='w-[100%] lg:w-[1130px] mx-auto flex gap-10 justify-between items-center mb-28'>
-          <div className='imgDiv w-[50%]'>
-            <img className='rounded-xl' src={headphoneImg} alt='' />
-          </div>
+        <div className='w-[100%] lg:w-[1130px] mx-auto'>
+          {categoryData.map(product => {
+            return (
+              <div
+                key={product?.id}
+                className='product flex gap-10 justify-between items-center mb-28'
+              >
+                <div className='imgDiv w-[50%]'>
+                  <img
+                    className='rounded-xl'
+                    src={product?.image?.desktop}
+                    alt=''
+                  />
+                </div>
 
-          <div className='textDiv w-[50%] pl-20'>
-            <p className='text-[14px] text-[#d87d4a] uppercase tracking-[10px]'>
-              New Product
-            </p>
-            <h3 className='text-[#191919] text-[30px] font-bold w-[50%] uppercase mt-6 leading-[35px]'>
-              XX99 Mark II Headphones
-            </h3>
+                <div className='textDiv w-[50%] pl-20'>
+                  <p className='text-[14px] text-[#d87d4a] uppercase tracking-[10px]'>
+                    New Product
+                  </p>
+                  <h3 className='text-[#191919] text-[30px] font-bold w-[50%] uppercase mt-6 leading-[35px]'>
+                    {product?.name}
+                  </h3>
 
-            <p className='mt-6 text-[15px] text-[#00000080] leading-[30px]'>
-              The new XX99 Mark II headphones is the pinnacle of pristine audio.
-              It redefines your premium headphone experience by reproducing the
-              balanced depth and precision of studio-quality sound.
-            </p>
+                  <p className='mt-6 text-[15px] text-[#00000080] leading-[30px]'>
+                    {product?.description}
+                  </p>
 
-            <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] mt-6 transition-colors duration-300 ease-in-out'>
-              See Product
-            </button>
-          </div>
+                  <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] mt-6 transition-colors duration-300 ease-in-out'>
+                    See Product
+                  </button>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
