@@ -1,13 +1,13 @@
-import Footer from "./Components/Footer/Footer"
-import Homepage from "./Components/Home/Homepage"
-import Navbar from "./Components/Navbar/Navbar"
+import { Outlet } from 'react-router-dom'
+import Footer from './Components/Footer/Footer'
+import Homepage from './Components/Home/Homepage'
+import Navbar from './Components/Navbar/Navbar'
 
-function App() {
-
+function App () {
   return (
     <>
       <Navbar></Navbar>
-      <Homepage></Homepage>
+      <Outlet></Outlet>
       <Footer></Footer>
     </>
   )
