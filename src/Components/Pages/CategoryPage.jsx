@@ -76,7 +76,7 @@ const CategoryPage = () => {
 
                   <div className='mt-6'>
                     <Link
-                      to={`${product?.slug}`}
+                      to={`/${product?.slug}`}
                       className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] mt-6 transition-colors duration-300 ease-in-out'
                     >
                       See Product

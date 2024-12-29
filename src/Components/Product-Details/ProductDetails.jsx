@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
-import { useNavigate } from 'react-router-dom'
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import zx9Img from '../../assets/images/product-zx9-speaker/desktop/image-product.jpg'
 import { FiMinus, FiPlus } from 'react-icons/fi'
 import imgGallery1 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-1.jpg'
@@ -14,6 +14,10 @@ import AudioGear from '../AudioGear/AudioGear'
 
 const ProductDetails = () => {
   let navigate = useNavigate()
+  const products = useLoaderData()
+  const { slug } = useParams()
+
+  console.log(slug)
 
   return (
     <div>
