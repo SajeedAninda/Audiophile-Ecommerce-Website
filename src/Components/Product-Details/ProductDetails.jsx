@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
-import { useLoaderData, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import zx9Img from '../../assets/images/product-zx9-speaker/desktop/image-product.jpg'
 import { FiMinus, FiPlus } from 'react-icons/fi'
 import imgGallery1 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-1.jpg'
@@ -14,10 +14,12 @@ import AudioGear from '../AudioGear/AudioGear'
 
 const ProductDetails = () => {
   let navigate = useNavigate()
-  const products = useLoaderData()
+  const { products } = useLoaderData()
   const { slug } = useParams()
 
-  console.log(slug)
+  const product = products.find(product => product.slug === slug)
+
+  console.log(product)
 
   return (
     <div>
@@ -34,26 +36,25 @@ const ProductDetails = () => {
 
         <div className='productHeader flex mt-16 gap-10 justify-between items-center mb-28'>
           <div className='imgDiv w-[50%]'>
-            <img className='rounded-xl' src={zx9Img} />
+            <img className='rounded-xl' src={product?.image?.desktop} />
           </div>
 
           <div className={`textDiv w-[50%] pl-20`}>
-            <p className='text-[14px] text-[#d87d4a] uppercase tracking-[15px]'>
-              New Product
-            </p>
+            {product?.new && (
+              <p className='text-[14px] text-[#d87d4a] uppercase tracking-[15px]'>
+                New Product
+              </p>
+            )}
             <h3 className='text-[#191919] text-[40px] font-bold uppercase mt-6 leading-[45px]'>
-              ZX9 Speaker
+              {product?.name}
             </h3>
 
             <p className='mt-6 text-[15px] text-[#00000080] leading-[30px] w-[90%]'>
-              Upgrade your sound system with the all new ZX9 active speaker.
-              It’s a bookshelf speaker system that offers truly wireless
-              connectivity -- creating new possibilities for more pleasing and
-              practical audio setups.
+              {product?.description}
             </p>
 
             <p className='text-[#191919] text-[18px] font-bold uppercase mt-6'>
-              $ 4,500
+              $ {product?.price}
             </p>
 
             <div className='flex items-center gap-3 mt-9'>
@@ -86,21 +87,10 @@ const ProductDetails = () => {
               Features
             </h3>
             <p className='description mt-6 text-[15px] text-[#00000080] leading-[30px] w-[90%]'>
-              Connect via Bluetooth or nearly any wired source. This speaker
-              features optical, digital coaxial, USB Type-B, stereo RCA, and
-              stereo XLR inputs, allowing you to have up to five wired source
-              devices connected for easy switching. Improved bluetooth
-              technology offers near lossless audio quality at up to 328ft
-              (100m).
+              {product?.description}
             </p>
             <p className='featureDetails mt-6 text-[15px] text-[#00000080] leading-[30px] w-[90%]'>
-              Discover clear, more natural sounding highs than the competition
-              with ZX9’s signature planar diaphragm tweeter. Equally important
-              is its powerful room-shaking bass courtesy of a 6.5” aluminum
-              alloy bass unit. You’ll be able to enjoy equal sound quality
-              whether in a large room or small den. Furthermore, you will
-              experience new sensations from old songs since it can respond to
-              even the subtle waveforms.
+              {product?.features}
             </p>
           </div>
 
@@ -109,30 +99,16 @@ const ProductDetails = () => {
               In The Box
             </h3>
             <div className='mt-6'>
-              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
-                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
-                Speaker Unit
-              </li>
-
-              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
-                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
-                Speaker Unit
-              </li>
-
-              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
-                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
-                Speaker Unit
-              </li>
-
-              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
-                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
-                Speaker Unit
-              </li>
-
-              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
-                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
-                Speaker Unit
-              </li>
+              {product?.includedItems.map(items => {
+                return (
+                  <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
+                    <span className='text-[#d87d4a] font-bold pr-4'>
+                      {items?.quantity}x
+                    </span>
+                    {items?.item}
+                  </li>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -143,14 +119,14 @@ const ProductDetails = () => {
             <div className='flex-1'>
               <img
                 className='rounded-xl h-full object-cover'
-                src={imgGallery1}
+                src={product?.gallery?.first?.desktop}
                 alt=''
               />
             </div>
             <div className='flex-1'>
               <img
                 className='rounded-xl h-full object-cover'
-                src={imgGallery2}
+                src={product?.gallery?.second?.desktop}
                 alt=''
               />
             </div>
@@ -160,7 +136,7 @@ const ProductDetails = () => {
           <div className='w-[60%] flex-1'>
             <img
               className='rounded-xl h-full w-full object-cover'
-              src={imgGallery3}
+              src={product?.gallery?.third?.desktop}
               alt=''
             />
           </div>
@@ -172,41 +148,29 @@ const ProductDetails = () => {
           </h3>
 
           <div className='mt-16 grid grid-cols-1 lg:grid-cols-3 gap-7'>
-            <div>
-              <img className='rounded-xl' src={zx7SpeakerImg} alt='' />
-              <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
-                ZX7 Speaker
-              </h4>
-              <div className='flex justify-center'>
-                <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'>
-                  See Product
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <img className='rounded-xl' src={xx99Img} alt='' />
-              <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
-                X99 Mark I
-              </h4>
-              <div className='flex justify-center'>
-                <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'>
-                  See Product
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <img className='rounded-xl' src={xx59Img} alt='' />
-              <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
-                XX59
-              </h4>
-              <div className='flex justify-center'>
-                <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'>
-                  See Product
-                </button>
-              </div>
-            </div>
+            {product?.others.map(others => {
+              const slugPart = others?.slug.split('/')[1]
+              return (
+                <div key={others?.slug}>
+                  <img
+                    className='rounded-xl'
+                    src={others?.image.desktop}
+                    alt=''
+                  />
+                  <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
+                    {others?.name}
+                  </h4>
+                  <div className='flex justify-center'>
+                    <Link
+                      to={`/${slugPart}`}
+                      className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'
+                    >
+                      See Product
+                    </Link>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 
