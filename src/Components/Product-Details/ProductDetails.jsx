@@ -52,7 +52,9 @@ const ProductDetails = () => {
                   <FiMinus className='text-[15px] group-hover:text-[#d87d5a]' />
                 </div>
 
-                <div className='bg-[#f1f1f1] h-[48px] font-bold py-3 px-5 text-[15px]'>1</div>
+                <div className='bg-[#f1f1f1] h-[48px] font-bold py-3 px-5 text-[15px]'>
+                  1
+                </div>
 
                 <div className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-3 px-5 flex items-center group'>
                   <FiPlus className='text-[15px] group-hover:text-[#d87d5a]' />
@@ -64,6 +66,63 @@ const ProductDetails = () => {
                   Add To Cart
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className='features flex justify-between items-start mb-28'>
+          <div className='w-[60%]'>
+            <h3 className='text-[#191919] text-[32px] font-bold uppercase mt-6 leading-[45px]'>
+              Features
+            </h3>
+            <p className='description mt-6 text-[15px] text-[#00000080] leading-[30px] w-[90%]'>
+              Connect via Bluetooth or nearly any wired source. This speaker
+              features optical, digital coaxial, USB Type-B, stereo RCA, and
+              stereo XLR inputs, allowing you to have up to five wired source
+              devices connected for easy switching. Improved bluetooth
+              technology offers near lossless audio quality at up to 328ft
+              (100m).
+            </p>
+            <p className='featureDetails mt-6 text-[15px] text-[#00000080] leading-[30px] w-[90%]'>
+              Discover clear, more natural sounding highs than the competition
+              with ZX9’s signature planar diaphragm tweeter. Equally important
+              is its powerful room-shaking bass courtesy of a 6.5” aluminum
+              alloy bass unit. You’ll be able to enjoy equal sound quality
+              whether in a large room or small den. Furthermore, you will
+              experience new sensations from old songs since it can respond to
+              even the subtle waveforms.
+            </p>
+          </div>
+
+          <div className='inTheBox w-[40%] pl-24'>
+            <h3 className='text-[#191919] text-[32px] font-bold uppercase mt-6 leading-[45px]'>
+              In The Box
+            </h3>
+            <div className='mt-6'>
+              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
+                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
+                Speaker Unit
+              </li>
+
+              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
+                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
+                Speaker Unit
+              </li>
+
+              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
+                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
+                Speaker Unit
+              </li>
+
+              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
+                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
+                Speaker Unit
+              </li>
+
+              <li className='featureDetails mt-1 text-[15px] text-[#00000080] leading-[30px] list-none'>
+                <span className='text-[#d87d4a] font-bold pr-3'>2x</span>
+                Speaker Unit
+              </li>
             </div>
           </div>
         </div>
