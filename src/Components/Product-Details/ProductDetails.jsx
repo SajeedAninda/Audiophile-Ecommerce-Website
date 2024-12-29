@@ -3,6 +3,9 @@ import { IoReturnUpBack } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
 import zx9Img from '../../assets/images/product-zx9-speaker/desktop/image-product.jpg'
 import { FiMinus, FiPlus } from 'react-icons/fi'
+import imgGallery1 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-1.jpg'
+import imgGallery2 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-2.jpg'
+import imgGallery3 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-3.jpg'
 
 const ProductDetails = () => {
   let navigate = useNavigate()
@@ -20,9 +23,7 @@ const ProductDetails = () => {
           Go Back
         </button>
 
-        <div
-          className={`productHeader flex mt-16 gap-10 justify-between items-center mb-28`}
-        >
+        <div className='productHeader flex mt-16 gap-10 justify-between items-center mb-28'>
           <div className='imgDiv w-[50%]'>
             <img className='rounded-xl' src={zx9Img} />
           </div>
@@ -124,6 +125,35 @@ const ProductDetails = () => {
                 Speaker Unit
               </li>
             </div>
+          </div>
+        </div>
+
+        <div className='imageGallery flex items-stretch gap-5 mb-28'>
+          {/*Left Column */}
+          <div className='w-[40%] flex flex-col gap-5'>
+            <div className='flex-1'>
+              <img
+                className='rounded-xl h-full object-cover'
+                src={imgGallery1}
+                alt=''
+              />
+            </div>
+            <div className='flex-1'>
+              <img
+                className='rounded-xl h-full object-cover'
+                src={imgGallery2}
+                alt=''
+              />
+            </div>
+          </div>
+
+          {/*  Right Column */}
+          <div className='w-[60%] flex-1'>
+            <img
+              className='rounded-xl h-full w-full object-cover'
+              src={imgGallery3}
+              alt=''
+            />
           </div>
         </div>
       </div>
