@@ -9,6 +9,8 @@ import imgGallery3 from '../../assets/images/product-zx9-speaker/desktop/image-g
 import zx7SpeakerImg from '../../assets/images/product-zx7-speaker/desktop/image-product.jpg'
 import xx99Img from '../../assets/images//product-xx99-mark-one-headphones/desktop/image-product.jpg'
 import xx59Img from '../../assets/images/product-xx59-headphones/desktop/image-product.jpg'
+import Shop from '../Home/Shop/Shop'
+import AudioGear from '../AudioGear/AudioGear'
 
 const ProductDetails = () => {
   let navigate = useNavigate()
@@ -193,7 +195,7 @@ const ProductDetails = () => {
             <div>
               <img className='rounded-xl' src={xx59Img} alt='' />
               <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
-               XX59
+                XX59
               </h4>
               <div className='flex justify-center'>
                 <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'>
@@ -202,6 +204,13 @@ const ProductDetails = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className='-mt-20'>
+          <Shop></Shop>
+        </div>
+        <div>
+          <AudioGear></AudioGear>
         </div>
       </div>
     </div>
