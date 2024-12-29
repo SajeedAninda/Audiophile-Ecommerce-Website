@@ -6,6 +6,9 @@ import { FiMinus, FiPlus } from 'react-icons/fi'
 import imgGallery1 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-1.jpg'
 import imgGallery2 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-2.jpg'
 import imgGallery3 from '../../assets/images/product-zx9-speaker/desktop/image-gallery-3.jpg'
+import zx7SpeakerImg from '../../assets/images/product-zx7-speaker/desktop/image-product.jpg'
+import xx99Img from '../../assets/images//product-xx99-mark-one-headphones/desktop/image-product.jpg'
+import xx59Img from '../../assets/images/product-xx59-headphones/desktop/image-product.jpg'
 
 const ProductDetails = () => {
   let navigate = useNavigate()
@@ -154,6 +157,50 @@ const ProductDetails = () => {
               src={imgGallery3}
               alt=''
             />
+          </div>
+        </div>
+
+        <div className='alsoLike mb-28'>
+          <h3 className='text-[#191919] text-[32px] font-bold uppercase mt-6 leading-[45px] text-center'>
+            You May Also Like
+          </h3>
+
+          <div className='mt-16 grid grid-cols-1 lg:grid-cols-3 gap-7'>
+            <div>
+              <img className='rounded-xl' src={zx7SpeakerImg} alt='' />
+              <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
+                ZX7 Speaker
+              </h4>
+              <div className='flex justify-center'>
+                <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'>
+                  See Product
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <img className='rounded-xl' src={xx99Img} alt='' />
+              <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
+                X99 Mark I
+              </h4>
+              <div className='flex justify-center'>
+                <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'>
+                  See Product
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <img className='rounded-xl' src={xx59Img} alt='' />
+              <h4 className='text-[#191919] text-[24px] font-bold uppercase mt-6 leading-[45px] text-center'>
+               XX59
+              </h4>
+              <div className='flex justify-center'>
+                <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out mt-6'>
+                  See Product
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
