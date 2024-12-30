@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import { FiMinus, FiPlus } from 'react-icons/fi'
@@ -9,6 +9,7 @@ const ProductDetails = () => {
   let navigate = useNavigate()
   const { products } = useLoaderData()
   const { slug } = useParams()
+  let [selectedAmount, setSelectedAmount] = useState(1)
 
   const product = products.find(product => product.slug === slug)
 
@@ -52,15 +53,25 @@ const ProductDetails = () => {
 
             <div className='flex items-center gap-3 mt-9'>
               <div className='cartCounter flex items-center'>
-                <div className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-3 px-5 flex items-center group'>
+                <div
+                  onClick={() => {
+                    if (selectedAmount > 0) {
+                      setSelectedAmount(selectedAmount - 1)
+                    }
+                  }}
+                  className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-3 px-5 flex items-center group select-none'
+                >
                   <FiMinus className='text-[15px] group-hover:text-[#d87d5a]' />
                 </div>
 
                 <div className='bg-[#f1f1f1] h-[48px] font-bold py-3 px-5 text-[15px]'>
-                  1
+                  {selectedAmount}
                 </div>
 
-                <div className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-3 px-5 flex items-center group'>
+                <div
+                  onClick={() => setSelectedAmount(selectedAmount + 1)}
+                  className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-3 px-5 flex items-center group select-none'
+                >
                   <FiPlus className='text-[15px] group-hover:text-[#d87d5a]' />
                 </div>
               </div>
