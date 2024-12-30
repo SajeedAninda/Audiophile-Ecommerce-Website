@@ -1,5 +1,6 @@
 import React from 'react'
 import yx1EarphoneImg from '../../assets/images/home/desktop/image-earphones-yx1.jpg'
+import { Link } from 'react-router-dom'
 
 const YX1_Eaphone = () => {
   return (
@@ -18,9 +19,11 @@ const YX1_Eaphone = () => {
         <h1 className='uppercase text-[28px] text-[#191919] font-bold'>
           YX1 Earphone
         </h1>
-        <button className='bg-transparent px-10 py-3 hover:bg-[#191919] text-[#191919] hover:text-white border border-[#191919] font-bold uppercase text-[13px] mt-8 transition-colors duration-300 ease-in-out'>
-          See Product
-        </button>
+        <div className='mt-8'>
+          <Link to={"/yx1-earphones"} className='bg-transparent px-10 py-3 hover:bg-[#191919] text-[#191919] hover:text-white border border-[#191919] font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'>
+            See Product
+          </Link>
+        </div>
       </div>
     </div>
   )

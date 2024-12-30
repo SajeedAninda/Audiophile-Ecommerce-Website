@@ -1,11 +1,16 @@
 import React from 'react'
 import zx9SpeakerImg from '../../assets/images/home/desktop/image-speaker-zx9.png'
 import speakerBg from '../../assets/images/home/desktop/pattern-circles.svg'
+import { Link } from 'react-router-dom'
 
 const ZX9_Speaker = () => {
   return (
     <div className='w-[100%] lg:w-[1130px] h-[590px] rounded-xl mb-20 mx-auto bg-[#d87d4a] relative overflow-hidden'>
-      <img className='absolute -top-40 -left-60 w-full' src={speakerBg} alt='' />
+      <img
+        className='absolute -top-40 -left-60 w-full'
+        src={speakerBg}
+        alt=''
+      />
       <div className='absolute -bottom-4 left-28'>
         <img className=' w-[410px]' src={zx9SpeakerImg} alt='' />
       </div>
@@ -18,9 +23,14 @@ const ZX9_Speaker = () => {
           truly remarkable sound.
         </p>
 
-        <button className='bg-[#191919] px-10 py-3 hover:bg-[#413f3f] text-white font-bold uppercase text-[13px] mt-8 transition-colors duration-300 ease-in-out'>
-          See Product
-        </button>
+        <div className='mt-8'>
+          <Link
+            to={'/zx9-speaker'}
+            className='bg-[#191919] px-10 py-3 hover:bg-[#413f3f] text-white font-bold uppercase text-[13px]  transition-colors duration-300 ease-in-out'
+          >
+            See Product
+          </Link>
+        </div>
       </div>
     </div>
   )

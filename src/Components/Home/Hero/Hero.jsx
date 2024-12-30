@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import heroBg from '../../../assets/images/home/desktop/image-hero.jpg'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   const [showImage, setShowImage] = useState(false)
@@ -39,9 +40,14 @@ const Hero = () => {
             made for the passionate music enthusiast.
           </p>
 
-          <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] mt-8 transition-colors duration-300 ease-in-out'>
-            See Product
-          </button>
+          <div className='mt-8 '>
+            <Link
+              to={'/xx99-mark-two-headphones'}
+              className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'
+            >
+              See Product
+            </Link>
+          </div>
         </div>
 
         <img
