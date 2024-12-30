@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../assets/images/shared/desktop/logo.svg'
 import { FaInstagram, FaSquareFacebook, FaTwitter } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -21,18 +22,30 @@ const Footer = () => {
 
         <div className='flex-1 flex flex-col justify-between'>
           <div className='links flex gap-10 items-center justify-end text-[13px] text-white font-semibold uppercase tracking-widest'>
-            <p className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'>
+            <Link
+              to={'/'}
+              className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'
+            >
               Home
-            </p>
-            <p className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'>
+            </Link>
+            <Link
+              to={'/headphones'}
+              className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'
+            >
               Headphones
-            </p>
-            <p className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'>
+            </Link>
+            <Link
+              to={'/speakers'}
+              className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'
+            >
               Speakers
-            </p>
-            <p className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'>
+            </Link>
+            <Link
+              to={'/earphones'}
+              className='hover:text-[#d87d4a] cursor-pointer transition-all duration-300 delay-75'
+            >
               Earphones
-            </p>
+            </Link>
           </div>
 
           <div className='logo flex gap-4 justify-end'>
