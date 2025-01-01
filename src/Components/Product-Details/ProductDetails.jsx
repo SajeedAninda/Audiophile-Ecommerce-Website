@@ -43,8 +43,6 @@ const ProductDetails = () => {
   };
   
 
-  console.log(cartItems)
-
   return (
     <div>
       <div className='w-[100%] lg:w-[1130px] mx-auto mt-16'>
