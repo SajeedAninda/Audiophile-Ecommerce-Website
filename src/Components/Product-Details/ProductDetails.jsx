@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import { FiMinus, FiPlus } from 'react-icons/fi'
@@ -15,32 +15,33 @@ const ProductDetails = () => {
 
   const product = products.find(product => product.slug === slug)
 
-  let handleAddToCart = () => {
+  const handleAddToCart = () => {
     let item = {
       id: product?.id,
       slug: product?.slug,
       name: product?.name,
       price: product?.price,
       image: product?.cartImage,
-      quantity: selectedAmount
-    }
-
-    const existingItem = cartItems.find(
-      cartItem => cartItem.slug === product.slug
-    )
+      quantity: selectedAmount,
+    };
+  
+    const existingItem = cartItems.find(cartItem => cartItem.slug === product.slug);
+  
     if (existingItem) {
-      setCartItems(
-        cartItems.map(cartItem =>
-          cartItem.slug === product.slug
-            ? { ...cartItem, quantity: cartItem.quantity + selectedAmount }
-            : cartItem
-        )
-      )
+      const updatedCart = cartItems.map(cartItem =>
+        cartItem.slug === product.slug
+          ? { ...cartItem, quantity: cartItem.quantity + selectedAmount }
+          : cartItem
+      );
+      setCartItems(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart)); 
     } else {
-      setCartItems([...cartItems, item])
+      const updatedCart = [...cartItems, item];
+      setCartItems(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart)); 
     }
-
-  }
+  };
+  
 
   console.log(cartItems)
 
