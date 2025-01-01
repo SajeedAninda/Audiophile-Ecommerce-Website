@@ -25,7 +25,21 @@ const ProductDetails = () => {
       quantity: selectedAmount
     }
 
-    console.log(item)
+    const existingItem = cartItems.find(
+      cartItem => cartItem.slug === product.slug
+    )
+    if (existingItem) {
+      setCartItems(
+        cartItems.map(cartItem =>
+          cartItem.slug === product.slug
+            ? { ...cartItem, quantity: cartItem.quantity + selectedAmount }
+            : cartItem
+        )
+      )
+    } else {
+      setCartItems([...cartItems, item])
+    }
+
   }
 
   console.log(cartItems)
