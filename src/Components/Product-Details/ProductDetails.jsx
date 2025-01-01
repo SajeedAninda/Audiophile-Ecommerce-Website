@@ -1,19 +1,34 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
 import { Link, useLoaderData, useNavigate, useParams } from 'react-router-dom'
 import { FiMinus, FiPlus } from 'react-icons/fi'
 import Shop from '../Home/Shop/Shop'
 import AudioGear from '../AudioGear/AudioGear'
+import { CartContext } from '../ContextAPI/CartProvider'
 
 const ProductDetails = () => {
   let navigate = useNavigate()
   const { products } = useLoaderData()
   const { slug } = useParams()
   let [selectedAmount, setSelectedAmount] = useState(1)
+  let { cartItems, setCartItems } = useContext(CartContext)
 
   const product = products.find(product => product.slug === slug)
 
-  console.log(product)
+  let handleAddToCart = () => {
+    let item = {
+      id: product?.id,
+      slug: product?.slug,
+      name: product?.name,
+      price: product?.price,
+      image: product?.cartImage,
+      quantity: selectedAmount
+    }
+
+    console.log(item)
+  }
+
+  console.log(cartItems)
 
   return (
     <div>
@@ -77,7 +92,10 @@ const ProductDetails = () => {
               </div>
 
               <div className='flex items-center'>
-                <button className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'>
+                <button
+                  onClick={handleAddToCart}
+                  className='bg-[#d87d4a] px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'
+                >
                   Add To Cart
                 </button>
               </div>
