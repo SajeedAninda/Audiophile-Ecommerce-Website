@@ -27,7 +27,6 @@ const CategoryPage = () => {
       })
   }, [routeName])
 
-  console.log(categoryData)
 
   return (
     <div>
