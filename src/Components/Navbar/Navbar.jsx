@@ -1,15 +1,15 @@
-import React, { useContext, useState } from 'react'
-import logo from '../../assets/images/shared/desktop/logo.svg'
-import cartIcon from '../../assets/images/shared/desktop/icon-cart.svg'
-import { NavLink } from 'react-router-dom'
-import { CartContext } from '../ContextAPI/CartProvider'
-import Modal from '../Modal/Modal'
+import React, { useContext, useState } from 'react';
+import logo from '../../assets/images/shared/desktop/logo.svg';
+import cartIcon from '../../assets/images/shared/desktop/icon-cart.svg';
+import { NavLink } from 'react-router-dom';
+import { CartContext } from '../ContextAPI/CartProvider';
+import Modal from '../Modal/Modal';
 
 const Navbar = () => {
-  const [isModalOpen, setModalOpen] = useState(false)
-  const { cartItems } = useContext(CartContext)
+  const [isModalOpen, setModalOpen] = useState(false);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
-  const toggleModal = () => setModalOpen(!isModalOpen)
+  const toggleModal = () => setModalOpen(!isModalOpen);
 
   return (
     <div className='bg-[#181918]'>
@@ -65,10 +65,10 @@ const Navbar = () => {
           <img className='cursor-pointer' src={cartIcon} alt='Cart Icon' />
         </div>
 
-        {isModalOpen && <Modal cartItems={cartItems} onClose={toggleModal} />}
+        {isModalOpen && <Modal cartItems={cartItems} setCartItems={setCartItems} onClose={toggleModal} />}
       </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
