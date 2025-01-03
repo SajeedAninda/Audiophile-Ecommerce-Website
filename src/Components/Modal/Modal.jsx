@@ -6,7 +6,23 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
 
   const handleRemoveAll = () => {
     setCartItems([]);
-    localStorage.removeItem('cart'); 
+    localStorage.removeItem('cart');
+  };
+
+  const updateQuantity = (slug, action) => {
+    const updatedItems = cartItems.map((item) => {
+      if (item.slug === slug) {
+        if (action === 'increase') {
+          item.quantity += 1;
+        } else if (action === 'decrease' && item.quantity > 1) {
+          item.quantity -= 1;
+        }
+      }
+      return item;
+    });
+
+    setCartItems(updatedItems);
+    localStorage.setItem('cart', JSON.stringify(updatedItems));
   };
 
   return (
@@ -20,7 +36,7 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
       >
         <div className='flex justify-between items-center'>
           <h2 className='text-lg font-bold mb-6 uppercase'>
-            Cart ({totalQuantity})
+            Cart (Total Quantity: {totalQuantity})
           </h2>
 
           <div className='flex items-center mb-6'>
@@ -56,7 +72,10 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
                 </div>
 
                 <div className='cartCounter flex items-center'>
-                  <div className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-2 px-4 flex items-center group select-none'>
+                  <div
+                    className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-2 px-4 flex items-center group select-none'
+                    onClick={() => updateQuantity(item.slug, 'decrease')}
+                  >
                     <FiMinus className='text-[15px] group-hover:text-[#d87d5a]' />
                   </div>
 
@@ -64,7 +83,10 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
                     {item.quantity}
                   </div>
 
-                  <div className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-2 px-4 flex items-center group select-none'>
+                  <div
+                    className='bg-[#f1f1f1] h-[48px] hover:bg-[#d3d2d2] cursor-pointer transition-colors duration-300 ease-in-out py-2 px-4 flex items-center group select-none'
+                    onClick={() => updateQuantity(item.slug, 'increase')}
+                  >
                     <FiPlus className='text-[15px] group-hover:text-[#d87d5a]' />
                   </div>
                 </div>
