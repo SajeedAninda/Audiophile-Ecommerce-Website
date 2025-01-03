@@ -2,9 +2,11 @@ import React from 'react';
 import { FiMinus, FiPlus } from 'react-icons/fi';
 
 const Modal = ({ cartItems, onClose, setCartItems }) => {
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   const handleRemoveAll = () => {
-    setCartItems([]); // Clear the cart state
-    localStorage.removeItem('cart'); // Remove cart data from localStorage
+    setCartItems([]);
+    localStorage.removeItem('cart'); 
   };
 
   return (
@@ -18,7 +20,7 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
       >
         <div className='flex justify-between items-center'>
           <h2 className='text-lg font-bold mb-6 uppercase'>
-            Cart ({cartItems.length})
+            Cart ({totalQuantity})
           </h2>
 
           <div className='flex items-center mb-6'>
