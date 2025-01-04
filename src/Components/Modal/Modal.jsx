@@ -7,6 +7,11 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
     0
   )
 
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  )
+
   const handleRemoveAll = () => {
     setCartItems([])
     localStorage.removeItem('cart')
@@ -104,7 +109,9 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
                 Total:
               </p>
 
-              <h3 className='text-[#191919] font-bold text-[18px]'>$ 13,500</h3>
+              <h3 className='text-[#191919] font-bold text-[18px]'>
+                $ {totalPrice}
+              </h3>
             </div>
 
             <div className='mt-8 w-full'>
