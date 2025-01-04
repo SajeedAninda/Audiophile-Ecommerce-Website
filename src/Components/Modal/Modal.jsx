@@ -1,29 +1,32 @@
-import React from 'react';
-import { FiMinus, FiPlus } from 'react-icons/fi';
+import React from 'react'
+import { FiMinus, FiPlus } from 'react-icons/fi'
 
 const Modal = ({ cartItems, onClose, setCartItems }) => {
-  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  )
 
   const handleRemoveAll = () => {
-    setCartItems([]);
-    localStorage.removeItem('cart');
-  };
+    setCartItems([])
+    localStorage.removeItem('cart')
+  }
 
   const updateQuantity = (slug, action) => {
-    const updatedItems = cartItems.map((item) => {
+    const updatedItems = cartItems.map(item => {
       if (item.slug === slug) {
         if (action === 'increase') {
-          item.quantity += 1;
+          item.quantity += 1
         } else if (action === 'decrease' && item.quantity > 1) {
-          item.quantity -= 1;
+          item.quantity -= 1
         }
       }
-      return item;
-    });
+      return item
+    })
 
-    setCartItems(updatedItems);
-    localStorage.setItem('cart', JSON.stringify(updatedItems));
-  };
+    setCartItems(updatedItems)
+    localStorage.setItem('cart', JSON.stringify(updatedItems))
+  }
 
   return (
     <div
@@ -32,11 +35,11 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
     >
       <div
         className='bg-white rounded-lg px-8 py-6 w-[90%] lg:w-[500px]'
-        onClick={(e) => e.stopPropagation()}
+        onClick={e => e.stopPropagation()}
       >
         <div className='flex justify-between items-center'>
           <h2 className='text-lg font-bold mb-6 uppercase'>
-            Cart (Total Quantity: {totalQuantity})
+            Cart ({totalQuantity})
           </h2>
 
           <div className='flex items-center mb-6'>
@@ -53,8 +56,11 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
           <p>Your cart is empty.</p>
         ) : (
           <div className='mt-5'>
-            {cartItems.map((item) => (
-              <div key={item.slug} className='flex justify-between items-center mb-4'>
+            {cartItems.map(item => (
+              <div
+                key={item.slug}
+                className='flex justify-between items-center mb-4'
+              >
                 <div className='flex gap-4 items-center'>
                   <div>
                     <img
@@ -92,11 +98,25 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
                 </div>
               </div>
             ))}
+
+            <div className='mt-8 flex justify-center gap-4 items-center'>
+              <p className='text-[17px] font-semibold text-[#00000080] uppercase '>
+                Total:
+              </p>
+
+              <h3 className='text-[#191919] font-bold text-[18px]'>$ 13,500</h3>
+            </div>
+
+            <div className='mt-8 w-full'>
+              <button className='bg-[#d87d4a] w-full px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'>
+                Checkout
+              </button>
+            </div>
           </div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal
