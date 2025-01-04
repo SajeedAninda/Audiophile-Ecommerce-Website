@@ -5,6 +5,7 @@ import { FiMinus, FiPlus } from 'react-icons/fi'
 import Shop from '../Home/Shop/Shop'
 import AudioGear from '../AudioGear/AudioGear'
 import { CartContext } from '../ContextAPI/CartProvider'
+import toast from 'react-hot-toast'
 
 const ProductDetails = () => {
   let navigate = useNavigate()
@@ -35,10 +36,12 @@ const ProductDetails = () => {
       );
       setCartItems(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart)); 
+      toast.success('Added to cart!')
     } else {
       const updatedCart = [...cartItems, item];
       setCartItems(updatedCart);
-      localStorage.setItem('cart', JSON.stringify(updatedCart)); 
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      toast.success('Added to cart!') 
     }
   };
   

@@ -21,7 +21,7 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
         }
         return item;
       })
-      .filter(item => item.quantity > 0); // Remove items with quantity less than 1
+      .filter(item => item.quantity > 0); 
 
     setCartItems(updatedItems);
     localStorage.setItem('cart', JSON.stringify(updatedItems));
