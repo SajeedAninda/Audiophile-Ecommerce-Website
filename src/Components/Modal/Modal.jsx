@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiMinus, FiPlus } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 const Modal = ({ cartItems, onClose, setCartItems }) => {
   const totalQuantity = cartItems.reduce(
@@ -111,10 +112,10 @@ const Modal = ({ cartItems, onClose, setCartItems }) => {
               </h3>
             </div>
 
-            <div className='mt-8 w-full'>
-              <button className='bg-[#d87d4a] w-full px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'>
+            <div className='mt-8 w-full flex items-center justify-center text-center'>
+              <Link onClick={onClose} to={"/checkout"} className='bg-[#d87d4a] w-full px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'>
                 Checkout
-              </button>
+              </Link>
             </div>
           </div>
         )}

@@ -8,6 +8,7 @@ import CategoryPage from './Components/Pages/CategoryPage.jsx'
 import ProductDetails from './Components/Product-Details/ProductDetails.jsx'
 import CartProvider from './Components/ContextAPI/CartProvider.jsx'
 import { Toaster } from 'react-hot-toast'
+import Checkout from './Components/Checkout/Checkout.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/earphones',
         element: <CategoryPage></CategoryPage>
+      },
+      {
+        path: '/checkout',
+        element: <Checkout></Checkout>
       },
       {
         path: '/:slug',
