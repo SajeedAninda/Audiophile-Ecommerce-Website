@@ -44,6 +44,7 @@ const Checkout = () => {
                     <br />
                     <input
                       name='name'
+                      id='name'
                       type='text'
                       className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                       placeholder='Alexei Ward'
@@ -60,6 +61,7 @@ const Checkout = () => {
                     <br />
                     <input
                       type='email'
+                      id='email'
                       name='email'
                       className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                       placeholder='alexei@mail.com'
@@ -78,6 +80,7 @@ const Checkout = () => {
                   <br />
                   <input
                     name='phone'
+                    id='phone'
                     type='tel'
                     className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                     placeholder='+1 202-555-8262'
@@ -104,6 +107,7 @@ const Checkout = () => {
                   <input
                     type='text'
                     name='address'
+                    id='address'
                     className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                     placeholder='1192 Faxton Street'
                   />
@@ -122,6 +126,7 @@ const Checkout = () => {
                   <br />
                   <input
                     name='zip'
+                    id='zip'
                     type='text'
                     className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                     placeholder='20001'
@@ -138,6 +143,7 @@ const Checkout = () => {
                   <br />
                   <input
                     type='text'
+                    id='city'
                     name='city'
                     className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                     placeholder='Austin'
@@ -157,6 +163,7 @@ const Checkout = () => {
                   <br />
                   <input
                     type='text'
+                    id='country'
                     name='country'
                     className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                     placeholder='United States'
@@ -247,9 +254,10 @@ const Checkout = () => {
                     <br />
                     <input
                       name='eMoneyNumber'
+                      id='eMoneyNumber'
                       type='number'
                       className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
-                      placeholder='Alexei Ward'
+                      placeholder='736151729'
                     />
                   </div>
 
@@ -263,9 +271,10 @@ const Checkout = () => {
                     <br />
                     <input
                       name='eMoneyPin'
+                      id='eMoneyPin'
                       type='number'
                       className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
-                      placeholder='Alexei Ward'
+                      placeholder='9917'
                     />
                   </div>
                 </div>
