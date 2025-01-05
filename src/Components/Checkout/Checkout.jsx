@@ -20,7 +20,7 @@ const Checkout = () => {
             <h2 className='uppercase text-[#191919] font-bold text-[28px]'>
               Checkout
             </h2>
-            
+
             {/* BILLING DETAILS  */}
             <div>
               <div className='billingDetails mt-6'>
@@ -156,6 +156,54 @@ const Checkout = () => {
                     className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
                     placeholder='United States'
                   />
+                </div>
+              </div>
+            </div>
+
+            {/* PAYMENT DETAILS  */}
+            <div>
+              <div className='paymentDetails mt-6'>
+                <p className='text-[#d87d4a] text-[14px] font-bold uppercase'>
+                  Payment Methods
+                </p>
+                <div className='mt-3 flex justify-between gap-6'>
+                  <div className='flex-1'>
+                    <p className='text-[#191919] text-[13px] font-bold'>
+                      Payment Method
+                    </p>
+                  </div>
+
+                  <div className='flex-1'>
+                    <div className='flex items-center gap-3  border border-[#0000003f] focus:outline-none focus:ring-2 focus:ring-[#d87d4a] py-4 px-3 rounded-lg'>
+                      <input
+                        id='eMoney'
+                        name='paymentMethod'
+                        type='radio'
+                        className='w-5 h-5 accent-[#d87d4a]'
+                      />
+                      <label
+                        htmlFor='eMoney'
+                        className='text-[#191919] text-[13px] font-bold'
+                      >
+                        E-Money
+                      </label>
+                    </div>
+
+                    <div className='flex items-center gap-3 mt-3 border border-[#0000003f] focus:outline-none focus:ring-2 focus:ring-[#d87d4a] py-4 px-3 rounded-lg'>
+                      <input
+                        id='cashOnDelivery'
+                        name='paymentMethod'
+                        type='radio'
+                        className='w-5 h-5 accent-[#d87d4a]'
+                      />
+                      <label
+                        htmlFor='cashOnDelivery'
+                        className='text-[#191919] text-[13px] font-bold'
+                      >
+                        Cash On Delivery
+                      </label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
