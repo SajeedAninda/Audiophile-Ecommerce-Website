@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
 import checkoutImg from '../../assets/images/checkout/icon-cash-on-delivery.svg'
+import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('eMoney')
+  let navigate = useNavigate()
 
   return (
     <div className='bg-[#f1f1f180] pt-10 pb-24'>
