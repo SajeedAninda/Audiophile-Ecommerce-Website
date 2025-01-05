@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
+import checkoutImg from '../../assets/images/checkout/icon-cash-on-delivery.svg'
 
 const Checkout = () => {
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('eMoney')
+
   return (
-    <div className='bg-[#f1f1f180] pt-10'>
+    <div className='bg-[#f1f1f180] pt-10 pb-24'>
       <div className='w-[100%] lg:w-[1130px] mx-auto'>
         <button
           onClick={() => {
@@ -16,7 +19,7 @@ const Checkout = () => {
         </button>
 
         <div className='mainDiv flex gap-10 justify-between items-center mt-6'>
-          <div className='formDiv w-[75%] bg-white rounded-xl py-8 px-12'>
+          <div className='formDiv w-[75%] bg-white rounded-xl py-12 px-12'>
             <h2 className='uppercase text-[#191919] font-bold text-[28px]'>
               Checkout
             </h2>
@@ -160,45 +163,67 @@ const Checkout = () => {
               </div>
             </div>
 
-            {/* PAYMENT DETAILS  */}
-            <div>
-              <div className='paymentDetails mt-6'>
-                <p className='text-[#d87d4a] text-[14px] font-bold uppercase'>
-                  Payment Methods
-                </p>
-                <div className='mt-3 flex justify-between gap-6'>
-                  <div className='flex-1'>
-                    <p className='text-[#191919] text-[13px] font-bold'>
-                      Payment Method
-                    </p>
-                  </div>
+            {/* PAYMENT DETAILS */}
+            <div className='paymentDetails mt-6'>
+              <p className='text-[#d87d4a] text-[14px] font-bold uppercase mt-3'>
+                Payment Details
+              </p>
+              <div className='flex justify-between gap-10 mt-3'>
+                <div className='flex-1'>
+                  <p className='text-[#191919] text-[13px] font-bold'>
+                    Payment Methods
+                  </p>
+                </div>
 
-                  <div className='flex-1'>
-                    <div className='flex items-center gap-3  border border-[#0000003f] focus:outline-none focus:ring-2 focus:ring-[#d87d4a] py-4 px-3 rounded-lg'>
+                <div className='flex-1'>
+                  <div className='mt-3'>
+                    {/* E-Money */}
+                    <div
+                      className={`flex items-center gap-3 border py-4 px-3 rounded-lg cursor-pointer ${
+                        selectedPaymentMethod === 'eMoney'
+                          ? 'border-[#d87d4a]'
+                          : 'border-[#0000003f]'
+                      }`}
+                      onClick={() => setSelectedPaymentMethod('eMoney')}
+                    >
                       <input
                         id='eMoney'
                         name='paymentMethod'
                         type='radio'
                         className='w-5 h-5 accent-[#d87d4a]'
+                        checked={selectedPaymentMethod === 'eMoney'}
+                        onChange={() => setSelectedPaymentMethod('eMoney')}
                       />
                       <label
                         htmlFor='eMoney'
-                        className='text-[#191919] text-[13px] font-bold'
+                        className='text-[#191919] text-[13px] font-bold cursor-pointer'
                       >
                         E-Money
                       </label>
                     </div>
 
-                    <div className='flex items-center gap-3 mt-3 border border-[#0000003f] focus:outline-none focus:ring-2 focus:ring-[#d87d4a] py-4 px-3 rounded-lg'>
+                    {/* Cash On Delivery */}
+                    <div
+                      className={`flex items-center gap-3 mt-3 border py-4 px-3 rounded-lg cursor-pointer ${
+                        selectedPaymentMethod === 'cashOnDelivery'
+                          ? 'border-[#d87d4a]'
+                          : 'border-[#0000003f]'
+                      }`}
+                      onClick={() => setSelectedPaymentMethod('cashOnDelivery')}
+                    >
                       <input
                         id='cashOnDelivery'
                         name='paymentMethod'
                         type='radio'
                         className='w-5 h-5 accent-[#d87d4a]'
+                        checked={selectedPaymentMethod === 'cashOnDelivery'}
+                        onChange={() =>
+                          setSelectedPaymentMethod('cashOnDelivery')
+                        }
                       />
                       <label
                         htmlFor='cashOnDelivery'
-                        className='text-[#191919] text-[13px] font-bold'
+                        className='text-[#191919] text-[13px] font-bold cursor-pointer'
                       >
                         Cash On Delivery
                       </label>
@@ -206,6 +231,55 @@ const Checkout = () => {
                   </div>
                 </div>
               </div>
+
+              {selectedPaymentMethod === 'eMoney' && (
+                <div className='conditionalDiv mt-10 flex justify-between items-center gap-6'>
+                  {/* e-MoneyNumber & e-MoneyPin  */}
+                  <div className='flex-1'>
+                    <label
+                      htmlFor='eMoneyNumber'
+                      className='text-[#191919] text-[13px] font-bold'
+                    >
+                      E-Money Number
+                    </label>
+                    <br />
+                    <input
+                      name='eMoneyNumber'
+                      type='number'
+                      className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
+                      placeholder='Alexei Ward'
+                    />
+                  </div>
+
+                  <div className='flex-1'>
+                    <label
+                      htmlFor='eMoneyPin'
+                      className='text-[#191919] text-[13px] font-bold'
+                    >
+                      E-Money Pin
+                    </label>
+                    <br />
+                    <input
+                      name='eMoneyPin'
+                      type='number'
+                      className='mt-2 w-full px-4 py-4 rounded-lg border border-[#0000003f] placeholder:text-[#00000080] placeholder:font-bold placeholder:text-[13px] text-[#191919] text-[13px] font-bold focus:outline-none focus:border focus:border-[#d87d4a]'
+                      placeholder='Alexei Ward'
+                    />
+                  </div>
+                </div>
+              )}
+
+              {selectedPaymentMethod === 'cashOnDelivery' && (
+                <div className='conditionalDiv2 mt-10 flex justify-between items-center gap-4'>
+                  <img src={checkoutImg} alt='' />
+                  <p className='text-[16px] font-semibold text-[#00000080]'>
+                    The ‘Cash on Delivery’ option enables you to pay in cash
+                    when our delivery courier arrives at your residence. Just
+                    make sure your address is correct so that your order will
+                    not be cancelled.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
