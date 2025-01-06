@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { CartContext } from '../ContextAPI/CartProvider';
 
 const CheckoutSummary = () => {
-    const { cartItems } = useContext(CartContext); // Only need cartItems here
+    const { cartItems } = useContext(CartContext);
 
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -68,10 +68,6 @@ const CheckoutSummary = () => {
                         <h3 className='text-[#d87d4a] font-bold text-[18px]'>
                             $ {(totalPrice + 50 + (totalPrice / 100) * 15).toFixed(2)}
                         </h3>
-                    </div>
-
-                    <div className='mt-8 w-full flex items-center justify-center text-center'>
-                        {/* Removed button from here */}
                     </div>
                 </div>
             )}
