@@ -33,7 +33,9 @@ const CheckoutSummary = () => {
                   alt={item.name}
                 />
                 <div>
-                  <p className='font-bold text-[15px] text-[#191919]'>{item.name}</p>
+                  <p className='font-bold text-[15px] text-[#191919]'>
+                    {item.name}
+                  </p>
                   <p className='text-[#00000080] text-[14px] mt-1 font-semibold'>
                     ${item.price.toFixed(2)}
                   </p>
@@ -57,10 +59,33 @@ const CheckoutSummary = () => {
             </h3>
           </div>
 
+          <div className='mt-3 flex justify-between gap-4 items-center'>
+            <p className='text-[17px] font-semibold text-[#00000080] uppercase'>
+              Shipping:
+            </p>
+            <h3 className='text-[#191919] font-bold text-[18px]'>$ 50</h3>
+          </div>
+
+          <div className='mt-3 flex justify-between gap-4 items-center'>
+            <p className='text-[17px] font-semibold text-[#00000080] uppercase'>
+              Vat(Included):
+            </p>
+            <h3 className='text-[#191919] font-bold text-[18px]'>
+              $ {(totalPrice / 100) * 15}
+            </h3>
+          </div>
+
+          <div className='mt-10 flex justify-between gap-4 items-center'>
+            <p className='text-[17px] font-semibold text-[#00000080] uppercase'>
+              Grand Total:
+            </p>
+            <h3 className='text-[#d87d4a] font-bold text-[18px]'>
+              $ {(totalPrice + 50 + (totalPrice / 100) * 15).toFixed(2)}
+            </h3>
+          </div>
+
           <div className='mt-8 w-full flex items-center justify-center text-center'>
-            <button
-              className='bg-[#d87d4a] w-full px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'
-            >
+            <button className='bg-[#d87d4a] w-full px-10 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] transition-colors duration-300 ease-in-out'>
               Continue & Pay
             </button>
           </div>
