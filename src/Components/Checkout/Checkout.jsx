@@ -21,7 +21,7 @@ const Checkout = () => {
         </button>
 
         <div className='mainDiv flex gap-10 justify-between items-center mt-6'>
-          <div className='formDiv w-[75%] bg-white rounded-xl py-12 px-12'>
+          <div className='formDiv w-[65%] bg-white rounded-xl py-12 px-12'>
             <h2 className='uppercase text-[#191919] font-bold text-[28px]'>
               Checkout
             </h2>
