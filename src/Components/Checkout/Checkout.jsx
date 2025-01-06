@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { IoReturnUpBack } from 'react-icons/io5'
 import checkoutImg from '../../assets/images/checkout/icon-cash-on-delivery.svg'
 import { useNavigate } from 'react-router-dom'
+import CheckoutSummary from './CheckoutSummary'
 
 const Checkout = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('eMoney')
@@ -20,7 +21,7 @@ const Checkout = () => {
           Go Back
         </button>
 
-        <div className='mainDiv flex gap-10 justify-between items-center mt-6'>
+        <div className='mainDiv flex gap-10 justify-between items-start mt-6'>
           <div className='formDiv w-[65%] bg-white rounded-xl py-12 px-12'>
             <h2 className='uppercase text-[#191919] font-bold text-[28px]'>
               Checkout
@@ -293,6 +294,8 @@ const Checkout = () => {
               )}
             </div>
           </div>
+
+          <CheckoutSummary></CheckoutSummary>
         </div>
       </div>
     </div>
