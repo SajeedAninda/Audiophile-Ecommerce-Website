@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 const YX1_Eaphone = () => {
   return (
-    <div className='w-[100%] lg:w-[1130px] mx-auto mb-28 flex gap-8 justify-between items-stretch'>
+    <div className='w-[100%] lg:w-[1130px] mx-auto mb-28 flex flex-col lg:flex-row gap-8 justify-between items-stretch  px-6 lg:px-0'>
       {/* Image Div */}
-      <div className='rounded-xl w-[50%]'>
+      <div className='rounded-xl w-full lg:w-[50%]'>
         <img
           className='rounded-xl object-cover w-full h-full'
           src={yx1EarphoneImg}
@@ -15,7 +15,7 @@ const YX1_Eaphone = () => {
       </div>
 
       {/* Text Div */}
-      <div className='w-[50%] rounded-xl py-24 pl-24 bg-[#f1f1f1]'>
+      <div className='w-full lg:w-[50%] rounded-xl py-24 pl-24 bg-[#f1f1f1]'>
         <h1 className='uppercase text-[28px] text-[#191919] font-bold'>
           YX1 Earphone
         </h1>
