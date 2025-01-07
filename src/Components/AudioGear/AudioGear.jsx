@@ -3,8 +3,8 @@ import audioGearImg from '../../assets/images/shared/desktop/image-best-gear.jpg
 
 const AudioGear = () => {
   return (
-    <div className='w-[100%] lg:w-[1130px] mx-auto mb-32 flex gap-8 justify-between items-center'>
-      <div className='w-[50%]'>
+    <div className='w-[100%] lg:w-[1130px] mx-auto mb-32 flex flex-col lg:flex-row gap-8 justify-between items-center  px-6 lg:px-0'>
+      <div className='w-full lg:w-[50%]'>
         <h1 className='uppercase text-[40px] leading-[50px] text-[#191919] font-bold'>
           Bringing you the <span className='text-[#d87d4a]'>best</span> audio
           gear
@@ -19,7 +19,7 @@ const AudioGear = () => {
         </p>
       </div>
 
-      <div className='div rounded-xl w-[50%]'>
+      <div className='div rounded-xl w-full lg:w-[50%]'>
         <img
           className='rounded-xl object-cover w-full'
           src={audioGearImg}
