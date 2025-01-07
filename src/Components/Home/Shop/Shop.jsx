@@ -9,7 +9,7 @@ const Shop = () => {
   return (
     <div>
       <div className='w-[100%] lg:w-[1130px] h-[70vh] mx-auto mt-48 lg:mt-0 px-6 lg:px-0'>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 pt-40 pb-20'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-20 lg:gap-8 pt-40 pb-20'>
           <Link to={"/headphones"} className='headphones relative bg-[#f1f0f0] px-8 pt-20 pb-8 rounded-xl group cursor-pointer hover:shadow-lg'>
             <img
               className='absolute -top-14 left-1/2 transform -translate-x-1/2 w-[138px]'
