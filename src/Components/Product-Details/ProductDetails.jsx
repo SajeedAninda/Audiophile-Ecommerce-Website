@@ -23,28 +23,29 @@ const ProductDetails = () => {
       name: product?.name,
       price: product?.price,
       image: product?.cartImage,
-      quantity: selectedAmount,
-    };
-  
-    const existingItem = cartItems.find(cartItem => cartItem.slug === product.slug);
-  
+      quantity: selectedAmount
+    }
+
+    const existingItem = cartItems.find(
+      cartItem => cartItem.slug === product.slug
+    )
+
     if (existingItem) {
       const updatedCart = cartItems.map(cartItem =>
         cartItem.slug === product.slug
           ? { ...cartItem, quantity: cartItem.quantity + selectedAmount }
           : cartItem
-      );
-      setCartItems(updatedCart);
-      localStorage.setItem('cart', JSON.stringify(updatedCart)); 
+      )
+      setCartItems(updatedCart)
+      localStorage.setItem('cart', JSON.stringify(updatedCart))
       toast.success('Added to cart!')
     } else {
-      const updatedCart = [...cartItems, item];
-      setCartItems(updatedCart);
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
-      toast.success('Added to cart!') 
+      const updatedCart = [...cartItems, item]
+      setCartItems(updatedCart)
+      localStorage.setItem('cart', JSON.stringify(updatedCart))
+      toast.success('Added to cart!')
     }
-  };
-  
+  }
 
   return (
     <div>
@@ -53,18 +54,18 @@ const ProductDetails = () => {
           onClick={() => {
             navigate(-1)
           }}
-          className='bg-[#d87d4a] px-8 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] mt-8 transition-colors duration-300 ease-in-out flex items-center gap-3'
+          className='bg-[#d87d4a] px-8 py-3 hover:bg-[#db956c] text-white font-bold uppercase text-[13px] mt-8 transition-colors duration-300 ease-in-out flex items-center gap-3 mx-6 lg:mx-0'
         >
           <IoReturnUpBack className='text-white text-[25px] font-bold' />
           Go Back
         </button>
 
-        <div className='productHeader flex mt-16 gap-10 justify-between items-center mb-28'>
-          <div className='imgDiv w-[50%]'>
+        <div className='productHeader flex flex-col lg:flex-row mt-16 gap-10 justify-between items-center mb-28 px-6 lg:px-0'>
+          <div className='imgDiv w-full lg:w-[50%]'>
             <img className='rounded-xl' src={product?.image?.desktop} />
           </div>
 
-          <div className={`textDiv w-[50%] pl-20`}>
+          <div className={`textDiv w-full lg:w-[50%] pl-4 lg:pl-20`}>
             {product?.new && (
               <p className='text-[14px] text-[#d87d4a] uppercase tracking-[15px]'>
                 New Product
@@ -119,8 +120,8 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div className='features flex justify-between items-start mb-28'>
-          <div className='w-[60%]'>
+        <div className='features flex flex-col lg:flex-row justify-between items-start mb-28'>
+          <div className='w-full lg:w-[60%] px-6 lg:px-0'>
             <h3 className='text-[#191919] text-[32px] font-bold uppercase mt-6 leading-[45px]'>
               Features
             </h3>
@@ -132,7 +133,7 @@ const ProductDetails = () => {
             </p>
           </div>
 
-          <div className='inTheBox w-[40%] pl-24'>
+          <div className='inTheBox w-full lg:w-[40%] pl-6 lg:pl-24'>
             <h3 className='text-[#191919] text-[32px] font-bold uppercase mt-6 leading-[45px]'>
               In The Box
             </h3>
@@ -151,9 +152,9 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div className='imageGallery flex items-stretch gap-5 mb-28'>
+        <div className='imageGallery flex flex-col lg:flex-row items-stretch gap-5 mb-28'>
           {/*Left Column */}
-          <div className='w-[40%] flex flex-col gap-5'>
+          <div className='px-6 lg:px-0 w-full lg:w-[40%] flex flex-col gap-5'>
             <div className='flex-1'>
               <img
                 className='rounded-xl h-full object-cover'
@@ -171,7 +172,7 @@ const ProductDetails = () => {
           </div>
 
           {/*  Right Column */}
-          <div className='w-[60%] flex-1'>
+          <div className='px-6 lg:px-0 w-full lg:w-[60%] flex-1'>
             <img
               className='rounded-xl h-full w-full object-cover'
               src={product?.gallery?.third?.desktop}
@@ -180,7 +181,7 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div className='alsoLike mb-28'>
+        <div className='alsoLike mb-28 px-6 lg:px-0'>
           <h3 className='text-[#191919] text-[32px] font-bold uppercase mt-6 leading-[45px] text-center'>
             You May Also Like
           </h3>
@@ -212,10 +213,10 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div className='-mt-20'>
+        <div className='-mt-40 lg:-mt-20'>
           <Shop></Shop>
         </div>
-        <div>
+        <div className='mt-[540px] lg:mt-0'>
           <AudioGear></AudioGear>
         </div>
       </div>
