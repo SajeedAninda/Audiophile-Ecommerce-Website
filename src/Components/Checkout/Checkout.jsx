@@ -8,7 +8,7 @@ const Checkout = () => {
   let navigate = useNavigate()
 
   return (
-    <div className='bg-[#f1f1f180] pt-10 pb-24'>
+    <div className='bg-[#f1f1f180] pt-10 pb-24 px-6 lg:px-0'>
       <div className='w-[100%] lg:w-[1130px] mx-auto'>
         <button
           onClick={() => {
@@ -20,7 +20,7 @@ const Checkout = () => {
           Go Back
         </button>
 
-        <div className='mainDiv flex gap-10 justify-between items-start mt-6'>
+        <div className='mainDiv flex flex-col lg:flex-row gap-10 justify-between items-start mt-6'>
           <CheckoutForm></CheckoutForm>
 
           <CheckoutSummary />

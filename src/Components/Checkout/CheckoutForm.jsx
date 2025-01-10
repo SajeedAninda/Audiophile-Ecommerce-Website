@@ -60,7 +60,7 @@ const CheckoutForm = () => {
   }
 
   return (
-    <div className='formDiv w-[65%] bg-white rounded-xl py-12 px-12'>
+    <div className='formDiv w-full lg:w-[65%] bg-white rounded-xl py-12 px-12'>
       <h2 className='uppercase text-[#191919] font-bold text-[28px]'>
         Checkout
       </h2>

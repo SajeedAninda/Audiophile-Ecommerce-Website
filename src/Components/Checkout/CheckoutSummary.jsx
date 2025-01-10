@@ -7,7 +7,7 @@ const CheckoutSummary = () => {
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     return (
-        <div className='w-[35%] bg-white rounded-xl py-12 px-6'>
+        <div className='w-full lg:w-[35%] bg-white rounded-xl py-12 px-6'>
             <h3 className='text-[#191919] uppercase font-bold text-[18px]'>
                 Summary
             </h3>
