@@ -5,17 +5,22 @@ import { NavLink } from 'react-router-dom'
 import { CartContext } from '../ContextAPI/CartProvider'
 import Modal from '../Modal/Modal'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { IoClose } from 'react-icons/io5'
 
 const Navbar = () => {
   const [isModalOpen, setModalOpen] = useState(false)
+  const [isSidebarOpen, setSidebarOpen] = useState(false)
   const { cartItems, setCartItems } = useContext(CartContext)
 
   const toggleModal = () => setModalOpen(!isModalOpen)
+  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen)
 
   const totalQuantity = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
   )
+
+  const closeSidebar = () => setSidebarOpen(false)
 
   return (
     <div>
@@ -88,7 +93,13 @@ const Navbar = () => {
 
       {/* FOR MOBILE DEVICES  */}
       <div className='bg-[#181918] flex items-center justify-between lg:hidden h-[14vh] px-6'>
-        <GiHamburgerMenu className='text-[25px] text-white font-bold' />
+        <div onClick={toggleSidebar}>
+          {isSidebarOpen ? (
+            <IoClose className='text-[25px] text-white font-bold cursor-pointer' />
+          ) : (
+            <GiHamburgerMenu className='text-[25px] text-white font-bold cursor-pointer' />
+          )}
+        </div>
         <div className='logo'>
           <img src={logo} alt='Logo' />
         </div>
@@ -108,6 +119,67 @@ const Navbar = () => {
           />
         )}
       </div>
+
+      {/* SIDEBAR */}
+      {isSidebarOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className='fixed inset-0 bg-black opacity-50 z-40'
+            onClick={closeSidebar}
+          ></div>
+
+          {/* Sidebar */}
+          <div className='fixed left-0 top-0 h-full w-[50%] bg-[#181918] z-50 py-12 px-10'>
+            <nav className='flex flex-col gap-12 text-white font-semibold text-[20px]'>
+              <NavLink
+                to={'/'}
+                className={({ isActive }) =>
+                  `cursor-pointer transition-all duration-300 delay-75 hover:text-[#d87d4a] ${
+                    isActive ? 'text-[#d87d4a]' : 'text-white'
+                  }`
+                }
+                onClick={closeSidebar}
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to={'/headphones'}
+                className={({ isActive }) =>
+                  `cursor-pointer transition-all duration-300 delay-75 hover:text-[#d87d4a] ${
+                    isActive ? 'text-[#d87d4a]' : 'text-white'
+                  }`
+                }
+                onClick={closeSidebar}
+              >
+                Headphones
+              </NavLink>
+              <NavLink
+                to={'/speakers'}
+                className={({ isActive }) =>
+                  `cursor-pointer transition-all duration-300 delay-75 hover:text-[#d87d4a] ${
+                    isActive ? 'text-[#d87d4a]' : 'text-white'
+                  }`
+                }
+                onClick={closeSidebar}
+              >
+                Speakers
+              </NavLink>
+              <NavLink
+                to={'/earphones'}
+                className={({ isActive }) =>
+                  `cursor-pointer transition-all duration-300 delay-75 hover:text-[#d87d4a] ${
+                    isActive ? 'text-[#d87d4a]' : 'text-white'
+                  }`
+                }
+                onClick={closeSidebar}
+              >
+                Earphones
+              </NavLink>
+            </nav>
+          </div>
+        </>
+      )}
     </div>
   )
 }
